@@ -24,12 +24,12 @@ public class UserServiceImpl implements UserService {
         System.out.println("Таблица удалена");
     }
 
-    public void saveUser(String name, String lastName, byte age) {
+    public void saveUser(String name, String lastName, Byte age) {
         userDao.saveUser(name, lastName, age);
         System.out.printf("User с именем – %s добавлен в базу данных\n", name);
     }
 
-    public void removeUserById(long id) {
+    public void removeUserById(Long id) {
         userDao.removeUserById(id);
         System.out.printf("User с id = %s удален\n", id);
     }

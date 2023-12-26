@@ -11,7 +11,7 @@ import java.util.Objects;
 public class User {
     @Id
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -20,23 +20,23 @@ public class User {
     private String lastName;
 
     @Column(name = "age")
-    private byte age;
+    private Byte age;
 
     public User() {
 
     }
 
-    public User(String name, String lastName, byte age) {
+    public User(String name, String lastName, Byte age) {
         this.name = name;
         this.lastName = lastName;
         this.age = age;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,7 +60,7 @@ public class User {
         return age;
     }
 
-    public void setAge(byte age) {
+    public void setAge(Byte age) {
         this.age = age;
     }
 

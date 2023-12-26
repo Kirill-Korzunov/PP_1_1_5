@@ -27,7 +27,6 @@ public class UserDaoHibernateImpl implements UserDao {
         this.sessionFactory = Util.getConnect();
     }
 
-
     @Override
     public void createUsersTable() {
         try(Session session = sessionFactory.openSession()){
@@ -51,7 +50,7 @@ public class UserDaoHibernateImpl implements UserDao {
     }
 
     @Override
-    public void saveUser(String name, String lastName, byte age) {
+    public void saveUser(String name, String lastName, Byte age) {
         try(Session session = sessionFactory.openSession()){
             session.beginTransaction();
             session.save(new User(name, lastName, age));
@@ -62,7 +61,7 @@ public class UserDaoHibernateImpl implements UserDao {
     }
 
     @Override
-    public void removeUserById(long id) {
+    public void removeUserById(Long id) {
         try(Session session = sessionFactory.openSession()){
             session.beginTransaction();
             User user = session.get(User.class, id);
