@@ -1,15 +1,13 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -56,7 +54,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public byte getAge() {
+    public Byte getAge() {
         return age;
     }
 
@@ -67,11 +65,12 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof User user)) return false;
-        return getId() == user.getId()
-                && getAge() == user.getAge()
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(getId(), user.getId())
                 && Objects.equals(getName(), user.getName())
-                && Objects.equals(getLastName(), user.getLastName());
+                && Objects.equals(getLastName(), user.getLastName())
+                && Objects.equals(getAge(), user.getAge());
     }
 
     @Override
